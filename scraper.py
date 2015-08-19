@@ -59,8 +59,12 @@ class PostHandler():
 
     def __init__(self, post):
         self.url = post["url"]
-        self.title = ''.join(c for c in post["title"] if c in self.allowed_chars)
+        self.title = ''.join(c for c in post["title"] if c in self.allowed_chars)[:40]
+        if self.title[-1] == " ":
+            self.title = self.title[:-1]
         self.author = ''.join(c for c in post["author"] if c in self.allowed_chars)
+        if self.author[-1] == " ":
+            self.author = self.author[:-1]
 
     def handle(self):
         path = self.create_path()
