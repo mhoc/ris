@@ -37,7 +37,7 @@ class Arguments():
         )
         parser.add_argument('--organize',
             dest='org',
-            default='author',
+            default='title',
             metavar='TYPE',
             choices=['author', 'title'],
             help='how to name the folder which contains the images and albums; either by title of the post or author of the post'

@@ -10,16 +10,25 @@ python scraper.py -h
 python scraper.py earthporn
 ```
 
-This will create a folder tree that looks like
+By default (or `--organize title`) this will create a folder tree that looks like
 
 ```
 reddit-scraper
 |-> images
     |-> earthporn
-        |-> (author OR title) # see --organize
-            |-> (singleimages).jpg
-            |-> (albumid)
-                |-> (singleimages).jpg
+        |-> (title)
+            |-> (images).jpg
+```
+
+You can modify this a bit with `--organize author`
+
+```
+reddit-scraper
+|-> images
+    |-> earthporn
+        |-> (author)
+            |-> (title)
+                |-> (images).jpg
 ```
 
 There are some flag options you can pass it. See `python scraper.py -h`.
@@ -28,8 +37,8 @@ There are some flag options you can pass it. See `python scraper.py -h`.
 
 `--dest` allows you to set the parent folder where images are downloaded.
 
-`--organize [author,title]` changes how posts are organized. Note that any posts in the same subreddit by the same author will be combined under the author's folder. And likewise, any posts in the same subreddit with the exact same title will be combined. Which... IMO is kind of helpful, right? It should never overwrite images, because the images are stored under the same name as imgur gave them.
+`--listing [hot, new]` which listing to use from reddit.
 
 # Known Issues
 
-See github issues. There are some.
+See github issues.
